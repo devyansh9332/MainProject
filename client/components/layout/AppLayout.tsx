@@ -25,7 +25,7 @@ export default function AppLayout() {
           <div className="flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button aria-label="Open menu" className="h-8 w-8 rounded-md bg-gradient-to-br from-indigo-600 to-violet-600 ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+                <button aria-label="Open menu" className="h-8 w-8 rounded-md bg-gradient-to-br from-sky-600 to-teal-500 ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuLabel>NextStepNavigators</DropdownMenuLabel>
