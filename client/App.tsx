@@ -75,6 +75,12 @@ const App = () => (
               path="/analytics"
               element={<Placeholder title="Career Insights" />}
             />
+            <Route path="/pricing" element={<Placeholder title="Pricing" />} />
+            <Route path="/about" element={<Placeholder title="About Us" />} />
+            <Route path="/contact" element={<Placeholder title="Contact Us" />} />
+            <Route path="/faq" element={<Placeholder title="FAQ" />} />
+            <Route path="/support" element={<Placeholder title="Support" />} />
+            <Route path="/roadmap" element={<Placeholder title="Roadmap" />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
