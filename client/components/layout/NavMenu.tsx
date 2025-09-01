@@ -31,6 +31,7 @@ export default function NavMenu() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-80 p-0">
+        <SheetTitle className="sr-only">Main navigation</SheetTitle>
         <div className="flex items-center gap-3 border-b p-4">
           <Avatar>
             <AvatarFallback>NS</AvatarFallback>
