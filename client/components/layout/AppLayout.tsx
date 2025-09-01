@@ -31,6 +31,7 @@ export default function AppLayout() {
                 <DropdownMenuLabel>NextStepNavigators</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
+                  <DropdownMenuItem onSelect={() => navigate("/dashboard")}>Dashboard</DropdownMenuItem>
                   <DropdownMenuItem onSelect={() => navigate("/pricing")}>Pricing</DropdownMenuItem>
                   <DropdownMenuItem onSelect={() => navigate("/about")}>About Us</DropdownMenuItem>
                   <DropdownMenuItem onSelect={() => navigate("/contact")}>Contact Us</DropdownMenuItem>
