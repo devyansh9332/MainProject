@@ -42,7 +42,7 @@ export default function NavMenu() {
         </div>
         <nav className="grid gap-1 p-3">
           {navItems.map((it) => (
-            <Link key={it.to} to={it.to} className="rounded-md px-3 py-2 text-sm hover:bg-accent">
+            <Link key={it.to} to={it.to} className="rounded-md px-3 py-2 text-sm hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100">
               {it.label}
             </Link>
           ))}
