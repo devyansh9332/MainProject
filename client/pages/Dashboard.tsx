@@ -2,15 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 const items = [
-  { icon: "🎯", label: "Take Career Quiz", href: "/quiz" },
+  { icon: "🎯", label: "Quiz", href: "/quiz" },
   { icon: "💼", label: "Career Recommendations", href: "/recommendations" },
-  { icon: "📅", label: "Deadlines & Alerts", href: "/deadlines" },
-  { icon: "🏫", label: "Local Opportunities", href: "/opportunities" },
-  { icon: "📝", label: "Resume Builder", href: "/resume" },
   { icon: "👔", label: "Interview Prep", href: "/interview" },
-  { icon: "💻", label: "Internships", href: "/internships" },
-  { icon: "🤖", label: "AI Chatbot", href: "/chatbot" },
-  { icon: "🔔", label: "Notifications", href: "/notifications" },
   { icon: "⚙️", label: "Settings", href: "/settings" },
   { icon: "📊", label: "Insights", href: "/analytics" },
 ];
@@ -21,7 +15,7 @@ export default function Dashboard() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Your Career Dashboard
+            Dashboard
           </h1>
         </div>
       </div>
