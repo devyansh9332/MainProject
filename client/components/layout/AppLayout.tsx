@@ -1,6 +1,9 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Input } from "@/components/ui/input";
+import NavMenu from "./NavMenu";
+import GlobalChatFab from "@/components/GlobalChatFab";
 import {
   DropdownMenu,
   DropdownMenuContent,
