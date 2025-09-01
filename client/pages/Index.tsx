@@ -12,26 +12,26 @@ export default function Index() {
         <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1 text-sm text-indigo-700 ring-1 ring-indigo-200 backdrop-blur dark:bg-slate-800/70 dark:text-indigo-200 dark:ring-indigo-900/40">
           Smart India Hackathon 2025 Project
         </div>
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
           Welcome to{" "}
           <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
             NextStepNavigators
           </span>
         </h1>
-        <p className="mt-4 max-w-xl text-base md:text-lg text-gray-600">
+        <p className="mt-4 max-w-xl text-base md:text-lg text-muted-foreground">
           Your one-stop career & education advisor.
         </p>
 
         <div className="mt-10 grid w-full max-w-sm gap-3">
           <Button
             variant="outline"
-            className="w-full border-gray-300 bg-white text-gray-800 hover:bg-gray-50"
+            className="w-full border-gray-300 bg-white text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
             onClick={() => navigate("/dashboard")}
           >
             Login with Google
           </Button>
           <Button
-            className="w-full bg-gray-900 text-white hover:bg-gray-800"
+            className="w-full bg-gray-900 text-white hover:bg-gray-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white"
             onClick={() => navigate("/dashboard")}
           >
             Login with GitHub
