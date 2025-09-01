@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, BriefcaseBusiness, CalendarDays, ChartBar, FileText, MapPin, MessageSquare } from "lucide-react";
+import { ArrowRight, Brain, BriefcaseBusiness, CalendarDays, ChartBar, FileText, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function Index() {
   const navigate = useNavigate();
-  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-teal-50 to-white px-6 py-10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
@@ -100,27 +98,6 @@ export default function Index() {
         <h3 className="text-xl font-semibold">Ready to take the first step toward your future?</h3>
         <Button className="mt-4" variant="default" onClick={() => navigate("/login")}>Start Your Journey</Button>
       </section>
-
-      {/* Floating Chatbot */}
-      <button
-        aria-label="Open AI Chatbot"
-        onClick={() => setChatOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-sky-600 to-teal-500 text-white shadow-lg"
-      >
-        <MessageSquare className="h-5 w-5" />
-      </button>
-      {chatOpen && (
-        <div className="fixed bottom-24 right-6 z-40 w-80 overflow-hidden rounded-xl border bg-background shadow-xl">
-          <div className="border-b p-3 font-semibold">CareerBuddy AI</div>
-          <div className="h-48 space-y-2 overflow-auto p-3 text-sm">
-            <div className="rounded-md bg-secondary p-2">Ask career questions and get guidance.</div>
-          </div>
-          <div className="flex gap-2 border-t p-3">
-            <input className="flex-1 rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline-none" placeholder="Type here…" />
-            <Button size="sm">Send</Button>
-          </div>
-        </div>
-      )}
 
       <style>{`@keyframes progress{from{width:10%} to{width:80%}}`}</style>
     </div>
