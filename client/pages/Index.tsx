@@ -1,62 +1,42 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
+    <div className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-violet-100 via-indigo-100 to-white px-6 py-8">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center text-center">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1 text-sm text-indigo-700 ring-1 ring-indigo-200 backdrop-blur">
+          Smart India Hackathon 2025 Project
+        </div>
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
+          Welcome to <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">NextStepNavigators</span>
         </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
+        <p className="mt-4 max-w-xl text-base md:text-lg text-gray-600">
+          Your one-stop career & education advisor.
         </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+
+        <div className="mt-10 grid w-full max-w-sm gap-3">
+          <Button
+            variant="outline"
+            className="w-full border-gray-300 bg-white text-gray-800 hover:bg-gray-50"
+            onClick={() => navigate("/dashboard")}
+          >
+            Login with Google
+          </Button>
+          <Button
+            className="w-full bg-gray-900 text-white hover:bg-gray-800"
+            onClick={() => navigate("/dashboard")}
+          >
+            Login with GitHub
+          </Button>
+        </div>
+      </main>
+
+      <footer className="mt-10 text-center text-sm text-gray-500">
+        Smart India Hackathon 2025 Project
+      </footer>
     </div>
   );
 }
