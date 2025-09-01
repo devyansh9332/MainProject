@@ -11,7 +11,10 @@ export default function Index() {
           Smart India Hackathon 2025 Project
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-          Welcome to <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">NextStepNavigators</span>
+          Welcome to{" "}
+          <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+            NextStepNavigators
+          </span>
         </h1>
         <p className="mt-4 max-w-xl text-base md:text-lg text-gray-600">
           Your one-stop career & education advisor.

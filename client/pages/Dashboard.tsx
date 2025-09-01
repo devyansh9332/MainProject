@@ -20,7 +20,9 @@ export default function Dashboard() {
     <div className="space-y-8">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Your Career Dashboard</h1>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Your Career Dashboard
+          </h1>
         </div>
       </div>
 
@@ -29,7 +31,9 @@ export default function Dashboard() {
           <Link key={it.href} to={it.href} aria-label={it.label}>
             <Card className="h-full border-indigo-100 transition hover:shadow-lg hover:border-indigo-200">
               <CardContent className="flex items-center gap-4 p-6">
-                <span className="text-3xl" aria-hidden>{it.icon}</span>
+                <span className="text-3xl" aria-hidden>
+                  {it.icon}
+                </span>
                 <span className="text-base font-medium">{it.label}</span>
               </CardContent>
             </Card>

@@ -10,10 +10,17 @@ export default function AppLayout() {
         <div className="container flex h-16 items-center justify-between">
           <Link to="/dashboard" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-md bg-gradient-to-br from-indigo-600 to-violet-600" />
-            <span className="text-lg font-bold tracking-tight">NextStepNavigators</span>
+            <span className="text-lg font-bold tracking-tight">
+              NextStepNavigators
+            </span>
           </Link>
           <nav className="flex items-center gap-2">
-            <Button asChild variant={location.pathname === "/profile" ? "secondary" : "outline"}>
+            <Button
+              asChild
+              variant={
+                location.pathname === "/profile" ? "secondary" : "outline"
+              }
+            >
               <Link to="/profile">Profile</Link>
             </Button>
           </nav>
