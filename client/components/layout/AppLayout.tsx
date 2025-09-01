@@ -27,10 +27,15 @@ export default function AppLayout() {
         <div className="container flex h-16 items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <NavMenu />
-            <Link to="/" className="text-lg font-bold tracking-tight">NextStepNavigators</Link>
+            <Link to="/" className="text-lg font-bold tracking-tight">
+              NextStepNavigators
+            </Link>
           </div>
           <div className="hidden md:flex flex-1 max-w-xl">
-            <Input placeholder="Search careers, exams, colleges…" className="w-full" />
+            <Input
+              placeholder="Search careers, exams, colleges…"
+              className="w-full"
+            />
           </div>
           <nav className="flex items-center gap-2">
             <ThemeToggle />

@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 const items = [
   { icon: "🎯", label: "Career Quiz", href: "/quiz", badge: "30%" },
-  { icon: "💼", label: "Career Recommendations", href: "/recommendations", badge: "3" },
+  {
+    icon: "💼",
+    label: "Career Recommendations",
+    href: "/recommendations",
+    badge: "3",
+  },
   { icon: "🗺️", label: "Roadmap", href: "/roadmap" },
   { icon: "📅", label: "Deadlines & Alerts", href: "/deadlines", badge: "2" },
   { icon: "🏫", label: "Local Opportunities", href: "/opportunities" },

@@ -17,10 +17,15 @@ export default function GlobalChatFab() {
         <div className="fixed bottom-24 right-6 z-40 w-80 overflow-hidden rounded-xl border bg-background shadow-xl">
           <div className="border-b p-3 font-semibold">AI Career Counselor</div>
           <div className="h-48 space-y-2 overflow-auto p-3 text-sm">
-            <div className="rounded-md bg-secondary p-2">Hi! Ask about careers, exams, or colleges.</div>
+            <div className="rounded-md bg-secondary p-2">
+              Hi! Ask about careers, exams, or colleges.
+            </div>
           </div>
           <div className="flex gap-2 border-t p-3">
-            <input className="flex-1 rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline-none" placeholder="Type here…" />
+            <input
+              className="flex-1 rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline-none"
+              placeholder="Type here…"
+            />
             <Button size="sm">Send</Button>
           </div>
         </div>

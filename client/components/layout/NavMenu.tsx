@@ -1,6 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
@@ -43,11 +48,21 @@ export default function NavMenu() {
         </div>
         <nav className="grid gap-1 p-3">
           {navItems.map((it) => (
-            <Link key={it.to} to={it.to} className="rounded-md px-3 py-2 text-sm hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100">
+            <Link
+              key={it.to}
+              to={it.to}
+              className="rounded-md px-3 py-2 text-sm hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100"
+            >
               {it.label}
             </Link>
           ))}
-          <Button variant="destructive" className="mt-2" onClick={() => navigate("/login")}>Logout</Button>
+          <Button
+            variant="destructive"
+            className="mt-2"
+            onClick={() => navigate("/login")}
+          >
+            Logout
+          </Button>
         </nav>
       </SheetContent>
     </Sheet>

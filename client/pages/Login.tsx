@@ -11,7 +11,7 @@ export default function Login() {
           Smart India Hackathon 2025 Project
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
-          Welcome to {" "}
+          Welcome to{" "}
           <span className="bg-gradient-to-r from-sky-600 to-teal-500 bg-clip-text text-transparent">
             NextStepNavigators
           </span>
