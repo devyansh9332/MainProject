@@ -12,6 +12,7 @@ import AppLayout from "./components/layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Placeholder from "./pages/Placeholder";
 import Onboarding from "./pages/Onboarding";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
