@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Index() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-violet-100 via-indigo-100 to-white px-6 py-8">
+    <div className="min-h-screen relative flex flex-col items-center justify-between bg-gradient-to-br from-violet-100 via-indigo-100 to-white px-6 py-8 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+      <div className="absolute right-6 top-6"><ThemeToggle /></div>
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center text-center">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1 text-sm text-indigo-700 ring-1 ring-indigo-200 backdrop-blur">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1 text-sm text-indigo-700 ring-1 ring-indigo-200 backdrop-blur dark:bg-slate-800/70 dark:text-indigo-200 dark:ring-indigo-900/40">
           Smart India Hackathon 2025 Project
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
