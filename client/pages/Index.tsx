@@ -26,13 +26,13 @@ export default function Index() {
           <Button
             variant="outline"
             className="w-full border-gray-300 bg-white text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/onboarding")}
           >
             Login with Google
           </Button>
           <Button
             className="w-full bg-gray-900 text-white hover:bg-gray-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/onboarding")}
           >
             Login with GitHub
           </Button>
