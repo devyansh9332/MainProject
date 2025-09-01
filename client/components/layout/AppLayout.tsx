@@ -47,7 +47,7 @@ export default function AppLayout() {
                 </DropdownMenuSub>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link to="/dashboard" className="text-lg font-bold tracking-tight">
+            <Link to="/" className="text-lg font-bold tracking-tight">
               NextStepNavigators
             </Link>
           </div>
