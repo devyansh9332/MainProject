@@ -19,5 +19,8 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Quiz routes
+  app.post("/api/quiz/submit", require("./routes/quiz").submitQuiz);
+
   return app;
 }
