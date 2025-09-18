@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { submitQuiz } from "./routes/quiz";
+import { saveResume } from "./routes/resume";
+import { saveInterview } from "./routes/interview";
 
 export function createServer() {
   const app = express();
@@ -22,6 +24,10 @@ export function createServer() {
 
   // Quiz routes
   app.post("/api/quiz/submit", submitQuiz);
+
+  // Resume & Interview routes
+  app.post("/api/resume/save", saveResume);
+  app.post("/api/interview/save", saveInterview);
 
   return app;
 }
