@@ -26,6 +26,28 @@ const navItems = [
   { label: "Settings", to: "/settings" },
 ];
 
+const deadlinesMenu = [
+  { label: "Entrance Exams", to: "/deadlines/exams" },
+  { label: "Scholarship Deadlines", to: "/deadlines/scholarships" },
+  { label: "College Applications", to: "/deadlines/college-applications" },
+  { label: "Counselling Rounds", to: "/deadlines/counselling" },
+  { label: "Result Announcements", to: "/deadlines/results" },
+  { label: "Admit Cards", to: "/deadlines/admit-cards" },
+  { label: "Fee Payments", to: "/deadlines/fee-payments" },
+  { label: "Calendar View", to: "/deadlines/calendar" },
+];
+
+const internshipsMenu = [
+  { label: "Software Engineering", to: "/internships/software" },
+  { label: "Data Science", to: "/internships/data-science" },
+  { label: "Design / UI", to: "/internships/design" },
+  { label: "Marketing", to: "/internships/marketing" },
+  { label: "Content Writing", to: "/internships/content" },
+  { label: "Finance", to: "/internships/finance" },
+  { label: "Human Resources", to: "/internships/hr" },
+  { label: "Remote Only", to: "/internships/remote" },
+];
+
 export default function NavMenu() {
   const navigate = useNavigate();
   return (
@@ -56,9 +78,36 @@ export default function NavMenu() {
               {it.label}
             </Link>
           ))}
+
+          <div className="mt-3 px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Deadlines & Alerts
+          </div>
+          {deadlinesMenu.map((it) => (
+            <Link
+              key={it.to}
+              to={it.to}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100"
+            >
+              {it.label}
+            </Link>
+          ))}
+
+          <div className="mt-3 px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Internship Board
+          </div>
+          {internshipsMenu.map((it) => (
+            <Link
+              key={it.to}
+              to={it.to}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100"
+            >
+              {it.label}
+            </Link>
+          ))}
+
           <Button
             variant="destructive"
-            className="mt-2"
+            className="mt-3"
             onClick={() => navigate("/login")}
           >
             Logout
