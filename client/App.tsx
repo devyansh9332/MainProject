@@ -33,10 +33,7 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/recommendations" element={<Recommendations />} />
-            <Route
-              path="/deadlines"
-              element={<Placeholder title="Upcoming Deadlines" />}
-            />
+            <Route path="/deadlines" element={<Deadlines />} />
             <Route path="/deadlines/exams" element={<Placeholder title="Entrance Exams" />} />
             <Route path="/deadlines/scholarships" element={<Placeholder title="Scholarship Deadlines" />} />
             <Route path="/deadlines/college-applications" element={<Placeholder title="College Applications" />} />
