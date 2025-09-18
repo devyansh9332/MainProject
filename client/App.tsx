@@ -17,6 +17,8 @@ import Quiz from "./pages/Quiz";
 import Recommendations from "./pages/Recommendations";
 import Internships from "./pages/Internships";
 import Deadlines from "./pages/Deadlines";
+import Resume from "./pages/Resume";
+import InterviewPrep from "./pages/InterviewPrep";
 
 const queryClient = new QueryClient();
 
@@ -57,14 +59,8 @@ const App = () => (
             <Route path="/internships/finance" element={<Placeholder title="Finance Internships" />} />
             <Route path="/internships/hr" element={<Placeholder title="HR Internships" />} />
             <Route path="/internships/remote" element={<Placeholder title="Remote Internships" />} />
-            <Route
-              path="/resume"
-              element={<Placeholder title="Build Your Resume" />}
-            />
-            <Route
-              path="/interview"
-              element={<Placeholder title="Interview Preparation" />}
-            />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/interview" element={<InterviewPrep />} />
             <Route
               path="/chatbot"
               element={<Placeholder title="Ask CareerBuddy AI" />}
