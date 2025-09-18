@@ -13,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import Placeholder from "./pages/Placeholder";
 import Onboarding from "./pages/Onboarding";
 import Login from "./pages/Login";
+import Quiz from "./pages/Quiz";
+import Recommendations from "./pages/Recommendations";
 
 const queryClient = new QueryClient();
 
