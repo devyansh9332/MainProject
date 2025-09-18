@@ -65,11 +65,15 @@ export default function Quiz() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Career Assessment Quiz</h1>
-          <p className="text-sm text-muted-foreground">Answer honestly to get better recommendations.</p>
+          <p className="text-sm text-muted-foreground">
+            Answer honestly to get better recommendations.
+          </p>
         </div>
         <div className="w-48">
           <Progress value={progress} />
-          <p className="mt-1 text-xs text-muted-foreground text-right">{progress}%</p>
+          <p className="mt-1 text-xs text-muted-foreground text-right">
+            {progress}%
+          </p>
         </div>
       </div>
 
@@ -81,16 +85,18 @@ export default function Quiz() {
               index={page * pageSize + idx}
               question={q}
               value={answers[q.id] as Likert}
-              onChange={(v) =>
-                setAnswers((prev) => ({ ...prev, [q.id]: v }))
-              }
+              onChange={(v) => setAnswers((prev) => ({ ...prev, [q.id]: v }))}
             />
           ))}
 
           <Separator />
 
           <div className="flex items-center justify-between">
-            <Button variant="outline" onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={!canPrev}>
+            <Button
+              variant="outline"
+              onClick={() => setPage((p) => Math.max(0, p - 1))}
+              disabled={!canPrev}
+            >
               <ArrowLeft className="mr-2 h-4 w-4" /> Previous
             </Button>
             {canNext ? (
@@ -98,7 +104,10 @@ export default function Quiz() {
                 Next <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             ) : (
-              <Button onClick={() => mutation.mutate()} disabled={!allAnswered || mutation.isPending}>
+              <Button
+                onClick={() => mutation.mutate()}
+                disabled={!allAnswered || mutation.isPending}
+              >
                 Submit <Send className="ml-2 h-4 w-4" />
               </Button>
             )}

@@ -29,7 +29,9 @@ export default function Recommendations() {
     return (
       <div className="space-y-4">
         <h1 className="text-2xl font-bold">Your Suggested Careers</h1>
-        <p className="text-muted-foreground">Take the quiz to view tailored recommendations.</p>
+        <p className="text-muted-foreground">
+          Take the quiz to view tailored recommendations.
+        </p>
         <Button onClick={() => navigate("/quiz")}>Take the Quiz</Button>
       </div>
     );
@@ -42,14 +44,21 @@ export default function Recommendations() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Your Suggested Careers</h1>
-          <p className="text-sm text-muted-foreground">Based on your answers, here are strong fits.</p>
+          <p className="text-sm text-muted-foreground">
+            Based on your answers, here are strong fits.
+          </p>
         </div>
-        <Button variant="outline" onClick={() => navigate("/quiz")}>Retake Quiz</Button>
+        <Button variant="outline" onClick={() => navigate("/quiz")}>
+          Retake Quiz
+        </Button>
       </div>
 
       <div className="grid gap-5 md:grid-cols-2">
         {items.map((rec) => {
-          const pct = Math.min(100, Math.round((rec.score / items[0].score) * 100));
+          const pct = Math.min(
+            100,
+            Math.round((rec.score / items[0].score) * 100),
+          );
           return (
             <Card key={rec.id} className="transition hover:shadow-lg">
               <CardContent className="p-5 space-y-3">
@@ -92,7 +101,9 @@ export default function Recommendations() {
                 <div key={k} className="rounded-md border p-3">
                   <div className="flex items-center justify-between">
                     <span className="capitalize text-sm">{k}</span>
-                    <span className="text-xs text-muted-foreground">{pct}%</span>
+                    <span className="text-xs text-muted-foreground">
+                      {pct}%
+                    </span>
                   </div>
                   <Progress className="mt-2" value={pct} />
                 </div>

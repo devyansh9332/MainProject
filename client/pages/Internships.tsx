@@ -213,9 +213,11 @@ export default function Internships() {
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
-    return LIST.filter((it) =>
-      (cat === "all" || it.category === cat) &&
-      (ql === "" || `${it.role} ${it.company} ${it.location}`.toLowerCase().includes(ql))
+    return LIST.filter(
+      (it) =>
+        (cat === "all" || it.category === cat) &&
+        (ql === "" ||
+          `${it.role} ${it.company} ${it.location}`.toLowerCase().includes(ql)),
     );
   }, [q, cat]);
 
@@ -224,17 +226,25 @@ export default function Internships() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold">Internship Board</h1>
-          <p className="text-sm text-muted-foreground">Curated openings across domains with apply-by dates.</p>
+          <p className="text-sm text-muted-foreground">
+            Curated openings across domains with apply-by dates.
+          </p>
         </div>
         <div className="flex gap-2">
-          <Input placeholder="Search role, company, or location" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Input
+            placeholder="Search role, company, or location"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
           <Select value={cat} onValueChange={setCat}>
             <SelectTrigger className="w-44">
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
               {categories.map((c) => (
-                <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
+                <SelectItem key={c.value} value={c.value}>
+                  {c.label}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -250,7 +260,9 @@ export default function Internships() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-semibold">{it.role}</p>
-                  <p className="text-sm text-muted-foreground">{it.company} • {it.location}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {it.company} • {it.location}
+                  </p>
                 </div>
                 <Badge variant="secondary">{it.type}</Badge>
               </div>
@@ -260,7 +272,9 @@ export default function Internships() {
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Apply by</span>
-                <span className="font-medium">{new Date(it.applyBy).toLocaleDateString()}</span>
+                <span className="font-medium">
+                  {new Date(it.applyBy).toLocaleDateString()}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <Button asChild size="sm">
@@ -276,7 +290,9 @@ export default function Internships() {
       </div>
 
       {data.length === 0 && (
-        <p className="text-sm text-muted-foreground">No internships match your filters.</p>
+        <p className="text-sm text-muted-foreground">
+          No internships match your filters.
+        </p>
       )}
     </div>
   );

@@ -18,7 +18,12 @@ const SCALE: { value: Likert; label: string }[] = [
   { value: 5, label: "Strongly agree" },
 ];
 
-export default function QuestionItem({ question, value, onChange, index }: Props) {
+export default function QuestionItem({
+  question,
+  value,
+  onChange,
+  index,
+}: Props) {
   return (
     <Card className="border-sky-100 dark:border-sky-900/50">
       <CardContent className="p-5">
@@ -32,9 +37,18 @@ export default function QuestionItem({ question, value, onChange, index }: Props
           onValueChange={(v) => onChange(Number(v) as Likert)}
         >
           {SCALE.map((opt) => (
-            <div key={opt.value} className="flex items-center gap-2 rounded-md border p-2">
-              <RadioGroupItem id={`${question.id}_${opt.value}`} value={opt.value.toString()} />
-              <Label htmlFor={`${question.id}_${opt.value}`} className="text-sm">
+            <div
+              key={opt.value}
+              className="flex items-center gap-2 rounded-md border p-2"
+            >
+              <RadioGroupItem
+                id={`${question.id}_${opt.value}`}
+                value={opt.value.toString()}
+              />
+              <Label
+                htmlFor={`${question.id}_${opt.value}`}
+                className="text-sm"
+              >
                 {opt.label}
               </Label>
             </div>

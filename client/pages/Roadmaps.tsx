@@ -46,7 +46,9 @@ export default function Roadmaps() {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold">Career Roadmaps</h1>
-        <p className="text-sm text-muted-foreground">Clear, actionable steps to reach your target role.</p>
+        <p className="text-sm text-muted-foreground">
+          Clear, actionable steps to reach your target role.
+        </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

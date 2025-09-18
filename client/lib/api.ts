@@ -1,10 +1,15 @@
 import type { QuizAnswers, QuizSubmitResponse } from "@shared/quiz";
 import type { ResumeData, ResumeSaveResponse } from "@shared/resume";
-import type { InterviewPrepData, InterviewSaveResponse } from "@shared/interview";
+import type {
+  InterviewPrepData,
+  InterviewSaveResponse,
+} from "@shared/interview";
 
 const BASE = ""; // same origin
 
-export async function submitQuiz(answers: QuizAnswers): Promise<QuizSubmitResponse> {
+export async function submitQuiz(
+  answers: QuizAnswers,
+): Promise<QuizSubmitResponse> {
   const res = await fetch(`${BASE}/api/quiz/submit`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -17,7 +22,9 @@ export async function submitQuiz(answers: QuizAnswers): Promise<QuizSubmitRespon
   return (await res.json()) as QuizSubmitResponse;
 }
 
-export async function saveResume(resume: ResumeData): Promise<ResumeSaveResponse> {
+export async function saveResume(
+  resume: ResumeData,
+): Promise<ResumeSaveResponse> {
   const res = await fetch(`${BASE}/api/resume/save`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -27,7 +34,9 @@ export async function saveResume(resume: ResumeData): Promise<ResumeSaveResponse
   return (await res.json()) as ResumeSaveResponse;
 }
 
-export async function saveInterview(data: InterviewPrepData): Promise<InterviewSaveResponse> {
+export async function saveInterview(
+  data: InterviewPrepData,
+): Promise<InterviewSaveResponse> {
   const res = await fetch(`${BASE}/api/interview/save`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

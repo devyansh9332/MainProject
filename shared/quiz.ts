@@ -45,28 +45,66 @@ export interface QuizSubmitResponse {
 
 // A concise, realistic question bank. Each question maps primarily to one trait.
 export const QUESTIONS: QuizQuestion[] = [
-  { id: "q1", prompt: "I enjoy solving math or logic puzzles.", trait: "analytical" },
-  { id: "q2", prompt: "I like planning how to approach complex problems step-by-step.", trait: "analytical" },
-  { id: "q3", prompt: "Designing posters, interfaces, or visuals sounds exciting.", trait: "creative" },
-  { id: "q4", prompt: "I enjoy writing stories, scripts, or blog posts.", trait: "creative" },
-  { id: "q5", prompt: "I feel energized when collaborating or helping others learn.", trait: "social" },
-  { id: "q6", prompt: "I’m comfortable presenting ideas to a group.", trait: "social" },
-  { id: "q7", prompt: "I like fixing gadgets or building hands‑on projects.", trait: "practical" },
-  { id: "q8", prompt: "I prefer tasks where I can see and measure real‑world results.", trait: "practical" },
-  { id: "q9", prompt: "I enjoy experimenting and learning new tools or technologies.", trait: "analytical" },
+  {
+    id: "q1",
+    prompt: "I enjoy solving math or logic puzzles.",
+    trait: "analytical",
+  },
+  {
+    id: "q2",
+    prompt: "I like planning how to approach complex problems step-by-step.",
+    trait: "analytical",
+  },
+  {
+    id: "q3",
+    prompt: "Designing posters, interfaces, or visuals sounds exciting.",
+    trait: "creative",
+  },
+  {
+    id: "q4",
+    prompt: "I enjoy writing stories, scripts, or blog posts.",
+    trait: "creative",
+  },
+  {
+    id: "q5",
+    prompt: "I feel energized when collaborating or helping others learn.",
+    trait: "social",
+  },
+  {
+    id: "q6",
+    prompt: "I’m comfortable presenting ideas to a group.",
+    trait: "social",
+  },
+  {
+    id: "q7",
+    prompt: "I like fixing gadgets or building hands‑on projects.",
+    trait: "practical",
+  },
+  {
+    id: "q8",
+    prompt: "I prefer tasks where I can see and measure real‑world results.",
+    trait: "practical",
+  },
+  {
+    id: "q9",
+    prompt: "I enjoy experimenting and learning new tools or technologies.",
+    trait: "analytical",
+  },
 ];
 
 export const CAREERS: Career[] = [
   {
     id: "software_engineer",
     title: "Software Engineer",
-    summary: "Build and ship reliable software systems across web, mobile, or data platforms.",
+    summary:
+      "Build and ship reliable software systems across web, mobile, or data platforms.",
     weights: { analytical: 0.6, practical: 0.2, creative: 0.15 },
   },
   {
     id: "data_analyst",
     title: "Data Analyst",
-    summary: "Turn raw data into insights to inform product and business decisions.",
+    summary:
+      "Turn raw data into insights to inform product and business decisions.",
     weights: { analytical: 0.7, practical: 0.15 },
   },
   {
@@ -78,7 +116,8 @@ export const CAREERS: Career[] = [
   {
     id: "teacher_trainer",
     title: "Teacher / Trainer",
-    summary: "Help learners grow through instruction, mentorship, and feedback.",
+    summary:
+      "Help learners grow through instruction, mentorship, and feedback.",
     weights: { social: 0.6, analytical: 0.15, creative: 0.15 },
   },
   {
@@ -90,7 +129,8 @@ export const CAREERS: Career[] = [
   {
     id: "entrepreneur",
     title: "Entrepreneur",
-    summary: "Start and grow ventures by combining strategy, product, and leadership.",
+    summary:
+      "Start and grow ventures by combining strategy, product, and leadership.",
     weights: { social: 0.3, creative: 0.35, analytical: 0.25 },
   },
 ];
@@ -149,7 +189,5 @@ export function scoreCareers(traits: TraitScores): Recommendation[] {
     };
   });
 
-  return recs
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  return recs.sort((a, b) => b.score - a.score).slice(0, 3);
 }
