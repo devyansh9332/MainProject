@@ -13,17 +13,17 @@ const navItems = [
   { label: "Dashboard", to: "/dashboard" },
   { label: "Career Quiz", to: "/quiz" },
   { label: "Career Recommendations", to: "/recommendations" },
-  { label: "Roadmap", to: "/roadmap" },
+  { label: "Roadmaps", to: "/roadmap" },
   { label: "Deadlines & Alerts", to: "/deadlines" },
   { label: "Opportunities Hub", to: "/opportunities" },
+  { label: "Careers Directory", to: "/careers" },
   { label: "Internship Board", to: "/internships" },
   { label: "Resume & Interview Prep", to: "/resume" },
   { label: "Insights / Reports", to: "/analytics" },
   { label: "About Us", to: "/about" },
   { label: "Pricing", to: "/pricing" },
-  { label: "Contact Us", to: "/contact" },
   { label: "Support / FAQ", to: "/faq" },
-  { label: "Settings", to: "/settings" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 const deadlinesMenu = [
