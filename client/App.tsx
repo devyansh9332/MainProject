@@ -19,6 +19,10 @@ import Internships from "./pages/Internships";
 import Deadlines from "./pages/Deadlines";
 import Resume from "./pages/Resume";
 import InterviewPrep from "./pages/InterviewPrep";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
+import Opportunities from "./pages/Opportunities";
+import Roadmaps from "./pages/Roadmaps";
 
 const queryClient = new QueryClient();
 
@@ -45,10 +49,7 @@ const App = () => (
             <Route path="/deadlines/admit-cards" element={<Placeholder title="Admit Cards" />} />
             <Route path="/deadlines/fee-payments" element={<Placeholder title="Fee Payments" />} />
             <Route path="/deadlines/calendar" element={<Placeholder title="Calendar View" />} />
-            <Route
-              path="/opportunities"
-              element={<Placeholder title="Opportunities Near You" />}
-            />
+            <Route path="/opportunities" element={<Opportunities />} />
             <Route path="/profile" element={<Placeholder title="Profile" />} />
             <Route path="/internships" element={<Internships />} />
             <Route path="/internships/software" element={<Placeholder title="Software Engineering Internships" />} />
@@ -78,14 +79,12 @@ const App = () => (
               element={<Placeholder title="Career Insights" />}
             />
             <Route path="/pricing" element={<Placeholder title="Pricing" />} />
-            <Route path="/about" element={<Placeholder title="About Us" />} />
-            <Route
-              path="/contact"
-              element={<Placeholder title="Contact Us" />}
-            />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Placeholder title="Contact Us" />} />
             <Route path="/faq" element={<Placeholder title="FAQ" />} />
             <Route path="/support" element={<Placeholder title="Support" />} />
-            <Route path="/roadmap" element={<Placeholder title="Roadmap" />} />
+            <Route path="/roadmap" element={<Roadmaps />} />
+            <Route path="/careers" element={<Careers />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
