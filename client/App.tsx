@@ -36,6 +36,14 @@ const App = () => (
               path="/deadlines"
               element={<Placeholder title="Upcoming Deadlines" />}
             />
+            <Route path="/deadlines/exams" element={<Placeholder title="Entrance Exams" />} />
+            <Route path="/deadlines/scholarships" element={<Placeholder title="Scholarship Deadlines" />} />
+            <Route path="/deadlines/college-applications" element={<Placeholder title="College Applications" />} />
+            <Route path="/deadlines/counselling" element={<Placeholder title="Counselling Rounds" />} />
+            <Route path="/deadlines/results" element={<Placeholder title="Result Announcements" />} />
+            <Route path="/deadlines/admit-cards" element={<Placeholder title="Admit Cards" />} />
+            <Route path="/deadlines/fee-payments" element={<Placeholder title="Fee Payments" />} />
+            <Route path="/deadlines/calendar" element={<Placeholder title="Calendar View" />} />
             <Route
               path="/opportunities"
               element={<Placeholder title="Opportunities Near You" />}
@@ -45,6 +53,14 @@ const App = () => (
               path="/internships"
               element={<Placeholder title="Internships & Volunteering" />}
             />
+            <Route path="/internships/software" element={<Placeholder title="Software Engineering Internships" />} />
+            <Route path="/internships/data-science" element={<Placeholder title="Data Science Internships" />} />
+            <Route path="/internships/design" element={<Placeholder title="Design / UI Internships" />} />
+            <Route path="/internships/marketing" element={<Placeholder title="Marketing Internships" />} />
+            <Route path="/internships/content" element={<Placeholder title="Content Writing Internships" />} />
+            <Route path="/internships/finance" element={<Placeholder title="Finance Internships" />} />
+            <Route path="/internships/hr" element={<Placeholder title="HR Internships" />} />
+            <Route path="/internships/remote" element={<Placeholder title="Remote Internships" />} />
             <Route
               path="/resume"
               element={<Placeholder title="Build Your Resume" />}
