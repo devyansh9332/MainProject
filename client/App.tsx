@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Recommendations from "./pages/Recommendations";
 import Internships from "./pages/Internships";
+import Deadlines from "./pages/Deadlines";
 
 const queryClient = new QueryClient();
 
