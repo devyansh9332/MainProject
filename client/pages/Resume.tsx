@@ -53,7 +53,7 @@ export default function Resume() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <div className="space-y-5">
+      <div className="space-y-5 print:hidden">
         <Card>
           <CardContent className="p-5 space-y-3">
             <h2 className="text-lg font-semibold">Basic Info</h2>
@@ -153,13 +153,12 @@ export default function Resume() {
 
         <div className="flex items-center gap-2">
           <Button onClick={onSubmit} disabled={!canSave}>Save to API</Button>
-          <Button variant="outline" onClick={() => { const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement("a"); a.href=url; a.download="resume.json"; a.click(); URL.revokeObjectURL(url); }}>Export JSON</Button>
-          <Button variant="secondary" onClick={() => window.print()}>Print</Button>
+          <Button variant="secondary" onClick={() => window.print()}>Download PDF</Button>
           <Button variant="ghost" onClick={() => { setData(emptyResume); localStorage.removeItem(STORAGE_KEY); }}>Reset</Button>
         </div>
       </div>
 
-      <div className="space-y-4 print:block">
+      <div id="resume-preview" className="space-y-4">
         <Card>
           <CardContent className="p-6 space-y-3">
             <div className="text-center">
@@ -244,6 +243,7 @@ export default function Resume() {
           </CardContent>
         </Card>
       </div>
+      <style>{`@media print { body * { visibility: hidden; } #resume-preview, #resume-preview * { visibility: visible; } #resume-preview { position: absolute; left: 0; top: 0; width: 100%; padding: 16px; } }`}</style>
     </div>
   );
 }
