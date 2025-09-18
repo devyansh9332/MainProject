@@ -30,19 +30,8 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route
-              path="/quiz"
-              element={
-                <Placeholder
-                  title="Career Assessment Quiz"
-                  description="Answer quick questions to discover your best-fit career paths."
-                />
-              }
-            />
-            <Route
-              path="/recommendations"
-              element={<Placeholder title="Your Suggested Careers" />}
-            />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/recommendations" element={<Recommendations />} />
             <Route
               path="/deadlines"
               element={<Placeholder title="Upcoming Deadlines" />}
