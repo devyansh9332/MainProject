@@ -4,7 +4,7 @@ import {
   QuizSubmitResponse,
   scoreTraits,
   scoreCareers,
-} from "@shared/quiz";
+} from "../../shared/quiz";
 
 export const submitQuiz: RequestHandler = (req, res) => {
   const body = req.body as QuizSubmitRequest | undefined;
