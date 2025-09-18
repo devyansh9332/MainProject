@@ -50,10 +50,7 @@ const App = () => (
               element={<Placeholder title="Opportunities Near You" />}
             />
             <Route path="/profile" element={<Placeholder title="Profile" />} />
-            <Route
-              path="/internships"
-              element={<Placeholder title="Internships & Volunteering" />}
-            />
+            <Route path="/internships" element={<Internships />} />
             <Route path="/internships/software" element={<Placeholder title="Software Engineering Internships" />} />
             <Route path="/internships/data-science" element={<Placeholder title="Data Science Internships" />} />
             <Route path="/internships/design" element={<Placeholder title="Design / UI Internships" />} />
