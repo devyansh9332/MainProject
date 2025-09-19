@@ -67,7 +67,10 @@ export default function NavMenu() {
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 p-0 max-h-screen overflow-y-auto">
+      <SheetContent
+        side="left"
+        className="w-80 p-0 max-h-screen overflow-y-auto"
+      >
         <SheetTitle className="sr-only">Main navigation</SheetTitle>
         <div className="flex items-center gap-3 border-b p-4">
           <Avatar>

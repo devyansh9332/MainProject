@@ -4,7 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Deadline {
   id: string;
@@ -131,9 +137,10 @@ export default function Deadlines() {
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
-    return all.filter((d) =>
-      (ql === "" || d.title.toLowerCase().includes(ql)) &&
-      (kind === "all" || d.type === kind),
+    return all.filter(
+      (d) =>
+        (ql === "" || d.title.toLowerCase().includes(ql)) &&
+        (kind === "all" || d.type === kind),
     );
   }, [q, kind]);
 
@@ -153,12 +160,16 @@ export default function Deadlines() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
-          <Select value={kind} onValueChange={(v)=> setKind(v as any)}>
-            <SelectTrigger className="w-44"><SelectValue placeholder="Type" /></SelectTrigger>
+          <Select value={kind} onValueChange={(v) => setKind(v as any)}>
+            <SelectTrigger className="w-44">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All</SelectItem>
-              {sections.map((s)=> (
-                <SelectItem key={s.key} value={s.key}>{s.label}</SelectItem>
+              {sections.map((s) => (
+                <SelectItem key={s.key} value={s.key}>
+                  {s.label}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -167,37 +178,39 @@ export default function Deadlines() {
 
       <Separator />
 
-      {sections.filter((s)=> kind === "all" || s.key === kind).map((s) => {
-        const items = data.filter((d) => d.type === s.key).slice(0, 4);
-        return (
-          <Card key={s.key} className="transition hover:shadow-sm">
-            <CardContent className="p-5 space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">{s.label}</h3>
-                <Link
-                  to={s.link}
-                  className="text-sm text-sky-700 hover:underline"
-                >
-                  View all
-                </Link>
-              </div>
-              <div className="grid gap-2">
-                {items.map((d) => (
-                  <div
-                    key={d.id}
-                    className="flex items-center justify-between rounded-md border p-3 text-sm"
+      {sections
+        .filter((s) => kind === "all" || s.key === kind)
+        .map((s) => {
+          const items = data.filter((d) => d.type === s.key).slice(0, 4);
+          return (
+            <Card key={s.key} className="transition hover:shadow-sm">
+              <CardContent className="p-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold">{s.label}</h3>
+                  <Link
+                    to={s.link}
+                    className="text-sm text-sky-700 hover:underline"
                   >
-                    <span>{d.title}</span>
-                    <Badge variant="secondary">
-                      {new Date(d.date).toLocaleDateString()}
-                    </Badge>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        );
-      })}
+                    View all
+                  </Link>
+                </div>
+                <div className="grid gap-2">
+                  {items.map((d) => (
+                    <div
+                      key={d.id}
+                      className="flex items-center justify-between rounded-md border p-3 text-sm"
+                    >
+                      <span>{d.title}</span>
+                      <Badge variant="secondary">
+                        {new Date(d.date).toLocaleDateString()}
+                      </Badge>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
     </div>
   );
 }

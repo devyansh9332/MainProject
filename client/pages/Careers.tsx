@@ -2,7 +2,13 @@ import { useMemo, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { CAREERS } from "@shared/quiz";
 
 export default function Careers() {
@@ -35,7 +41,9 @@ export default function Careers() {
             onChange={(e) => setQ(e.target.value)}
           />
           <Select value={trait} onValueChange={setTrait}>
-            <SelectTrigger className="w-40"><SelectValue placeholder="Top trait" /></SelectTrigger>
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Top trait" />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Traits</SelectItem>
               <SelectItem value="analytical">Analytical</SelectItem>

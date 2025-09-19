@@ -210,7 +210,9 @@ const categories = [
 export default function Internships() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof categories)[number]["value"]>("all");
-  const [jobType, setJobType] = useState<"all" | "Remote" | "On-site" | "Hybrid">("all");
+  const [jobType, setJobType] = useState<
+    "all" | "Remote" | "On-site" | "Hybrid"
+  >("all");
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
@@ -250,8 +252,10 @@ export default function Internships() {
               ))}
             </SelectContent>
           </Select>
-          <Select value={jobType} onValueChange={(v)=> setJobType(v as any)}>
-            <SelectTrigger className="w-40"><SelectValue placeholder="Type" /></SelectTrigger>
+          <Select value={jobType} onValueChange={(v) => setJobType(v as any)}>
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Types</SelectItem>
               <SelectItem value="Remote">Remote</SelectItem>

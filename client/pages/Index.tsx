@@ -38,7 +38,10 @@ export default function Index() {
   }, []);
 
   const totalQ = QUESTIONS.length;
-  const progress = Math.max(0, Math.min(100, Math.round((answersCount / Math.max(1, totalQ)) * 100)));
+  const progress = Math.max(
+    0,
+    Math.min(100, Math.round((answersCount / Math.max(1, totalQ)) * 100)),
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-teal-50 to-white px-6 py-10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
@@ -68,15 +71,32 @@ export default function Index() {
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium">Progress</p>
                 {topRec ? (
-                  <Button size="sm" variant="outline" onClick={() => navigate("/recommendations")}>View Recommendations</Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => navigate("/recommendations")}
+                  >
+                    View Recommendations
+                  </Button>
                 ) : (
-                  <Button size="sm" variant="outline" onClick={() => navigate("/quiz")}>Resume Quiz</Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => navigate("/quiz")}
+                  >
+                    Resume Quiz
+                  </Button>
                 )}
               </div>
               <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
-                <div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-teal-500" style={{ width: `${progress}%` }} />
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-sky-500 to-teal-500"
+                  style={{ width: `${progress}%` }}
+                />
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{progress}% Complete</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {progress}% Complete
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -121,13 +141,30 @@ export default function Index() {
               <span className="rounded-md bg-secondary px-2 py-1">Career</span>
             </div>
             <div className="mt-4 rounded-lg border p-4">
-              <p className="font-semibold">{topRec ?? "Complete the quiz to unlock your top career"}</p>
-              <p className="text-sm text-muted-foreground">{topRec ? "Top suggested career from your quiz results" : "We’ll tailor this based on your answers"}</p>
+              <p className="font-semibold">
+                {topRec ?? "Complete the quiz to unlock your top career"}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {topRec
+                  ? "Top suggested career from your quiz results"
+                  : "We’ll tailor this based on your answers"}
+              </p>
               <div className="mt-3">
                 {topRec ? (
-                  <Button size="sm" onClick={() => navigate("/recommendations")}>View details <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                  <Button
+                    size="sm"
+                    onClick={() => navigate("/recommendations")}
+                  >
+                    View details <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 ) : (
-                  <Button size="sm" variant="outline" onClick={() => navigate("/quiz")}>Take the Quiz</Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => navigate("/quiz")}
+                  >
+                    Take the Quiz
+                  </Button>
                 )}
               </div>
             </div>
@@ -139,15 +176,51 @@ export default function Index() {
       <section className="container mt-14">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: <BriefcaseBusiness className="h-5 w-5" />, title: "Career Recommendations", to: "/recommendations" },
-            { icon: <CalendarDays className="h-5 w-5" />, title: "Deadlines & Alerts", to: "/deadlines" },
-            { icon: <FileText className="h-5 w-5" />, title: "Resume Builder", to: "/resume" },
-            { icon: <Target className="h-5 w-5" />, title: "Roadmaps", to: "/roadmap" },
-            { icon: <MapPin className="h-5 w-5" />, title: "Opportunities Hub", to: "/opportunities" },
-            { icon: <GraduationCap className="h-5 w-5" />, title: "Colleges", to: "/colleges" },
-            { icon: <ChartBar className="h-5 w-5" />, title: "Insights", to: "/analytics" },
-            { icon: <Brain className="h-5 w-5" />, title: "AI Chatbot", to: "/chatbot" },
-            { icon: <LogIn className="h-5 w-5" />, title: "Login", to: "/login" },
+            {
+              icon: <BriefcaseBusiness className="h-5 w-5" />,
+              title: "Career Recommendations",
+              to: "/recommendations",
+            },
+            {
+              icon: <CalendarDays className="h-5 w-5" />,
+              title: "Deadlines & Alerts",
+              to: "/deadlines",
+            },
+            {
+              icon: <FileText className="h-5 w-5" />,
+              title: "Resume Builder",
+              to: "/resume",
+            },
+            {
+              icon: <Target className="h-5 w-5" />,
+              title: "Roadmaps",
+              to: "/roadmap",
+            },
+            {
+              icon: <MapPin className="h-5 w-5" />,
+              title: "Opportunities Hub",
+              to: "/opportunities",
+            },
+            {
+              icon: <GraduationCap className="h-5 w-5" />,
+              title: "Colleges",
+              to: "/colleges",
+            },
+            {
+              icon: <ChartBar className="h-5 w-5" />,
+              title: "Insights",
+              to: "/analytics",
+            },
+            {
+              icon: <Brain className="h-5 w-5" />,
+              title: "AI Chatbot",
+              to: "/chatbot",
+            },
+            {
+              icon: <LogIn className="h-5 w-5" />,
+              title: "Login",
+              to: "/login",
+            },
           ].map((f) => (
             <Link key={f.title} to={f.to} aria-label={f.title}>
               <Card className="transition hover:shadow-lg">
@@ -176,7 +249,6 @@ export default function Index() {
           Start Your Journey
         </Button>
       </section>
-
     </div>
   );
 }

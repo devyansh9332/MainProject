@@ -3,7 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useEffect } from "react";
 
 interface Item {
@@ -89,14 +95,26 @@ export default function Opportunities() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const t = params.get("type") as Item["type"] | null;
-    if (t && ["scholarship","hackathon","workshop","club","event","competition"].includes(t)) setType(t);
+    if (
+      t &&
+      [
+        "scholarship",
+        "hackathon",
+        "workshop",
+        "club",
+        "event",
+        "competition",
+      ].includes(t)
+    )
+      setType(t);
   }, []);
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
-    return items.filter((i) =>
-      (ql === "" || i.title.toLowerCase().includes(ql)) &&
-      (type === "all" || i.type === type)
+    return items.filter(
+      (i) =>
+        (ql === "" || i.title.toLowerCase().includes(ql)) &&
+        (type === "all" || i.type === type),
     );
   }, [q, type]);
 
@@ -117,8 +135,10 @@ export default function Opportunities() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
-          <Select value={type} onValueChange={(v)=> setType(v as any)}>
-            <SelectTrigger className="w-44"><SelectValue placeholder="Type" /></SelectTrigger>
+          <Select value={type} onValueChange={(v) => setType(v as any)}>
+            <SelectTrigger className="w-44">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Types</SelectItem>
               <SelectItem value="scholarship">Scholarship</SelectItem>
