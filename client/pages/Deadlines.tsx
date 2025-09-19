@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface Deadline {
   id: string;
@@ -126,32 +127,47 @@ const sections: { key: Deadline["type"]; label: string; link: string }[] = [
 
 export default function Deadlines() {
   const [q, setQ] = useState("");
+  const [kind, setKind] = useState<"all" | Deadline["type"]>("all");
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
-    return all.filter((d) => ql === "" || d.title.toLowerCase().includes(ql));
-  }, [q]);
+    return all.filter((d) =>
+      (ql === "" || d.title.toLowerCase().includes(ql)) &&
+      (kind === "all" || d.type === kind),
+    );
+  }, [q, kind]);
 
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <div>
           <h1 className="text-2xl font-bold">Deadlines & Alerts</h1>
           <p className="text-sm text-muted-foreground">
             Track important exam, scholarship, and application dates.
           </p>
         </div>
-        <Input
-          className="max-w-sm"
-          placeholder="Search deadlines"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-        />
+        <div className="flex gap-2">
+          <Input
+            className="max-w-sm"
+            placeholder="Search deadlines"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
+          <Select value={kind} onValueChange={(v)=> setKind(v as any)}>
+            <SelectTrigger className="w-44"><SelectValue placeholder="Type" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {sections.map((s)=> (
+                <SelectItem key={s.key} value={s.key}>{s.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <Separator />
 
-      {sections.map((s) => {
+      {sections.filter((s)=> kind === "all" || s.key === kind).map((s) => {
         const items = data.filter((d) => d.type === s.key).slice(0, 4);
         return (
           <Card key={s.key} className="transition hover:shadow-sm">
