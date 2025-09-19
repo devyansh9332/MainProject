@@ -210,16 +210,18 @@ const categories = [
 export default function Internships() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof categories)[number]["value"]>("all");
+  const [jobType, setJobType] = useState<"all" | "Remote" | "On-site" | "Hybrid">("all");
 
   const data = useMemo(() => {
     const ql = q.trim().toLowerCase();
     return LIST.filter(
       (it) =>
         (cat === "all" || it.category === cat) &&
+        (jobType === "all" || it.type === jobType) &&
         (ql === "" ||
           `${it.role} ${it.company} ${it.location}`.toLowerCase().includes(ql)),
     );
-  }, [q, cat]);
+  }, [q, cat, jobType]);
 
   return (
     <div className="space-y-5">
@@ -246,6 +248,15 @@ export default function Internships() {
                   {c.label}
                 </SelectItem>
               ))}
+            </SelectContent>
+          </Select>
+          <Select value={jobType} onValueChange={(v)=> setJobType(v as any)}>
+            <SelectTrigger className="w-40"><SelectValue placeholder="Type" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Types</SelectItem>
+              <SelectItem value="Remote">Remote</SelectItem>
+              <SelectItem value="On-site">On-site</SelectItem>
+              <SelectItem value="Hybrid">Hybrid</SelectItem>
             </SelectContent>
           </Select>
         </div>
