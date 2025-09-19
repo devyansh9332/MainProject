@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Brain,
@@ -8,11 +9,36 @@ import {
   ChartBar,
   FileText,
   MapPin,
+  LogIn,
+  GraduationCap,
+  Target,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { QUESTIONS } from "@shared/quiz";
 
 export default function Index() {
   const navigate = useNavigate();
+  const [answersCount, setAnswersCount] = useState(0);
+  const [topRec, setTopRec] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const rawA = localStorage.getItem("nsn.quiz.answers.v1");
+      if (rawA) {
+        const a = JSON.parse(rawA) as Record<string, unknown>;
+        setAnswersCount(Object.keys(a).length);
+      }
+      const rawR = localStorage.getItem("nsn.quiz.result.v1");
+      if (rawR) {
+        const r = JSON.parse(rawR) as { recommendations?: { title: string }[] };
+        setTopRec(r.recommendations?.[0]?.title ?? null);
+      }
+    } catch {}
+  }, []);
+
+  const totalQ = QUESTIONS.length;
+  const progress = Math.max(0, Math.min(100, Math.round((answersCount / Math.max(1, totalQ)) * 100)));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-teal-50 to-white px-6 py-10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
@@ -39,11 +65,18 @@ export default function Index() {
           <div className="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-gradient-to-br from-sky-400/30 to-teal-400/30 blur-2xl" />
           <Card className="relative">
             <CardContent className="p-6">
-              <p className="text-sm font-medium">Progress</p>
-              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
-                <div className="h-full w-[30%] animate-[progress_2s_ease-in-out_infinite_alternate] rounded-full bg-gradient-to-r from-sky-500 to-teal-500" />
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium">Progress</p>
+                {topRec ? (
+                  <Button size="sm" variant="outline" onClick={() => navigate("/recommendations")}>View Recommendations</Button>
+                ) : (
+                  <Button size="sm" variant="outline" onClick={() => navigate("/quiz")}>Resume Quiz</Button>
+                )}
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">30% Complete</p>
+              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
+                <div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-teal-500" style={{ width: `${progress}%` }} />
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{progress}% Complete</p>
             </CardContent>
           </Card>
         </div>
@@ -88,10 +121,15 @@ export default function Index() {
               <span className="rounded-md bg-secondary px-2 py-1">Career</span>
             </div>
             <div className="mt-4 rounded-lg border p-4">
-              <p className="font-semibold">Software Engineer</p>
-              <p className="text-sm text-muted-foreground">
-                Skills Needed: Coding, Problem-Solving, Communication
-              </p>
+              <p className="font-semibold">{topRec ?? "Complete the quiz to unlock your top career"}</p>
+              <p className="text-sm text-muted-foreground">{topRec ? "Top suggested career from your quiz results" : "We’ll tailor this based on your answers"}</p>
+              <div className="mt-3">
+                {topRec ? (
+                  <Button size="sm" onClick={() => navigate("/recommendations")}>View details <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                ) : (
+                  <Button size="sm" variant="outline" onClick={() => navigate("/quiz")}>Take the Quiz</Button>
+                )}
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -101,33 +139,26 @@ export default function Index() {
       <section className="container mt-14">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {
-              icon: <BriefcaseBusiness className="h-5 w-5" />,
-              title: "Career Recommendations",
-            },
-            {
-              icon: <CalendarDays className="h-5 w-5" />,
-              title: "Deadlines & Alerts",
-            },
-            {
-              icon: <FileText className="h-5 w-5" />,
-              title: "Resume & Interview Prep",
-            },
-            {
-              icon: <MapPin className="h-5 w-5" />,
-              title: "Local Opportunities",
-            },
-            { icon: <ChartBar className="h-5 w-5" />, title: "Insights" },
-            { icon: <Brain className="h-5 w-5" />, title: "AI Chatbot" },
+            { icon: <BriefcaseBusiness className="h-5 w-5" />, title: "Career Recommendations", to: "/recommendations" },
+            { icon: <CalendarDays className="h-5 w-5" />, title: "Deadlines & Alerts", to: "/deadlines" },
+            { icon: <FileText className="h-5 w-5" />, title: "Resume Builder", to: "/resume" },
+            { icon: <Target className="h-5 w-5" />, title: "Roadmaps", to: "/roadmap" },
+            { icon: <MapPin className="h-5 w-5" />, title: "Opportunities Hub", to: "/opportunities" },
+            { icon: <GraduationCap className="h-5 w-5" />, title: "Colleges", to: "/colleges" },
+            { icon: <ChartBar className="h-5 w-5" />, title: "Insights", to: "/analytics" },
+            { icon: <Brain className="h-5 w-5" />, title: "AI Chatbot", to: "/chatbot" },
+            { icon: <LogIn className="h-5 w-5" />, title: "Login", to: "/login" },
           ].map((f) => (
-            <Card key={f.title} className="transition hover:shadow-lg">
-              <CardContent className="flex items-center gap-3 p-5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-sky-500 to-teal-500 text-white">
-                  {f.icon}
-                </div>
-                <p className="font-medium">{f.title}</p>
-              </CardContent>
-            </Card>
+            <Link key={f.title} to={f.to} aria-label={f.title}>
+              <Card className="transition hover:shadow-lg">
+                <CardContent className="flex items-center gap-3 p-5">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-sky-500 to-teal-500 text-white">
+                    {f.icon}
+                  </div>
+                  <p className="font-medium">{f.title}</p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -146,7 +177,6 @@ export default function Index() {
         </Button>
       </section>
 
-      <style>{`@keyframes progress{from{width:10%} to{width:80%}}`}</style>
     </div>
   );
 }
