@@ -137,6 +137,7 @@ const App = () => (
             <Route path="/support" element={<Placeholder title="Support" />} />
             <Route path="/roadmap" element={<Roadmaps />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/colleges" element={<Colleges />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
