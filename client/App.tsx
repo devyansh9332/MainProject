@@ -23,6 +23,7 @@ import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Opportunities from "./pages/Opportunities";
 import Roadmaps from "./pages/Roadmaps";
+import Colleges from "./pages/Colleges";
 
 const queryClient = new QueryClient();
 

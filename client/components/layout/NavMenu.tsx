@@ -17,6 +17,7 @@ const navItems = [
   { label: "Deadlines & Alerts", to: "/deadlines" },
   { label: "Opportunities Hub", to: "/opportunities" },
   { label: "Careers Directory", to: "/careers" },
+  { label: "Colleges", to: "/colleges" },
   { label: "Internship Board", to: "/internships" },
   { label: "Resume & Interview Prep", to: "/resume" },
   { label: "Insights / Reports", to: "/analytics" },
@@ -24,6 +25,15 @@ const navItems = [
   { label: "Pricing", to: "/pricing" },
   { label: "Support / FAQ", to: "/faq" },
   { label: "Contact Us", to: "/contact" },
+];
+
+const opportunitiesMenu = [
+  { label: "Scholarships", to: "/opportunities?type=scholarship" },
+  { label: "Hackathons", to: "/opportunities?type=hackathon" },
+  { label: "Workshops", to: "/opportunities?type=workshop" },
+  { label: "Clubs", to: "/opportunities?type=club" },
+  { label: "Events", to: "/opportunities?type=event" },
+  { label: "Competitions", to: "/opportunities?type=competition" },
 ];
 
 const deadlinesMenu = [
@@ -83,6 +93,19 @@ export default function NavMenu() {
             Deadlines & Alerts
           </div>
           {deadlinesMenu.map((it) => (
+            <Link
+              key={it.to}
+              to={it.to}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-sky-100 hover:text-sky-800 dark:hover:bg-sky-900/40 dark:hover:text-sky-100"
+            >
+              {it.label}
+            </Link>
+          ))}
+
+          <div className="mt-3 px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Opportunities
+          </div>
+          {opportunitiesMenu.map((it) => (
             <Link
               key={it.to}
               to={it.to}
